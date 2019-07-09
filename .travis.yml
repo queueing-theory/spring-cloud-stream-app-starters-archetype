@@ -1,0 +1,18 @@
+language: java
+
+jdk:
+  - openjdk8
+  - openjdk11
+
+sudo: false
+
+install: "mvn clean"
+
+script:
+  - "mvn -U install"
+  - rm -rf $HOME/.m2/repository/org/springframework/cloud/stream/app/app-starters-archetype
+
+# Cache Maven Repository
+cache:
+  directories:
+    - '$HOME/.m2/repository'

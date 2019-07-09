@@ -1,0 +1,11 @@
+#macro( ccase $str )
+#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase()#end
+#end
+#set( $ccAppName = "#ccase( $rootArtifactId )" )
+#set( $ccAppType = "#ccase( $appType )" )
+#[[#]]# $ccAppName $ccAppType
+
+To learn more about this application and the supported properties, please review the following link.
+
+include::spring-cloud-starter-stream-${appType}-${rootArtifactId}/README.adoc[]
+
