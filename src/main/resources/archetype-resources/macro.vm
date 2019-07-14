@@ -10,7 +10,12 @@
 #foreach( $word in $str.split('-') )$word.#end
 #end
 
+#macro( interface $str )
+#if( $str == 'source')Source#elseif($str == 'processor')Processor#elseif($str == 'sink')Sink#end
+#end
+
 #set( $sccAppName = "#sccase( $rootArtifactId )")
 #set( $ccAppName = "#ccase( $rootArtifactId )" )
 #set( $ccAppType = "#ccase( $appType )" )
 #set( $packagePath = "#package_path( $rootArtifactId )$appType")
+#set( $appInterface = "#interface( $appType )")
