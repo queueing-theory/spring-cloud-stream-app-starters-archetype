@@ -1,11 +1,4 @@
-# Spring Cloud Stream App Starter Archetype (THIS IS NOT AN OFFICIAL Maven Archetype!!!)
-
-To remove, once your are done with exploring, use the following command.
-
-```sh
-rm -rf $HOME/.m2/repository/org/springframework/cloud/stream/app/app-starters-archetype
-```
-
+# Spring Cloud Stream App Starter Archetype (THIS IS NOT AN OFFICIAL Maven Archetype!)
 [![Build Status](https://travis-ci.org/queueing-theory/spring-cloud-stream-app-starters-archetype.svg?branch=master)](https://travis-ci.org/queueing-theory/spring-cloud-stream-app-starters-archetype)
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)  
 
@@ -39,6 +32,10 @@ appType -> source
 springCloudVersion -> 2.1.3.RELEASE
 ```
 
+3. To remove, once your are done with exploring, use the following command.
 
+```sh
+rm -rf $HOME/.m2/repository/org/springframework/cloud/stream/app/app-starters-archetype
+```
 
 
