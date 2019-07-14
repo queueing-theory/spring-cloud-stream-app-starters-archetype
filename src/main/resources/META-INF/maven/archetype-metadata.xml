@@ -25,54 +25,30 @@ under the License.
                       http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
                       name="${artifactId}">
   <requiredProperties>
+    <requiredProperty key="artifactId">
+      <validationRegex>^[a-z]*(?:(?:-[a-z]*))*?[a-z]$</validationRegex>
+    </requiredProperty>
     <requiredProperty key="groupId">
       <defaultValue>org.springframework.cloud.stream.app</defaultValue>
     </requiredProperty>
-    <requiredProperty key="appType"/>
+    <requiredProperty key="appType">
+      <validationRegex>source|processor|sink</validationRegex>
+    </requiredProperty>
     <requiredProperty key="springCloudVersion"/>
   </requiredProperties>
-  <modules>
-    <module id="spring-cloud-starter-stream-${appType}-${rootArtifactId}"
-            dir="spring-cloud-starter-stream-__appType__-__rootArtifactId__"
-            name="spring-cloud-starter-stream-${appType}-${rootArtifactId}">
-      <fileSets>
-        <fileSet filtered="true">
-          <directory>src/main/java</directory>
-        </fileSet>
-        <fileSet filtered="true" packaged="false">
-          <directory>src/main/resources/META-INF</directory>
-        </fileSet>
-        <fileSet filtered="true">
-          <directory>src/test/java</directory>
-        </fileSet>
-        <fileSet filtered="true">
-          <directory>src/test/resources</directory>
-        </fileSet>
-        <fileSet filtered="true" packaged="false">
-          <directory></directory>
-          <includes>
-            <include>README.adoc</include>
-          </includes>
-        </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-app-dependencies"
-            dir="__rootArtifactId__-app-dependencies"
-            name="${rootArtifactId}-app-dependencies">
-    </module>
-  </modules>
   <fileSets>
-    <fileSet filtered="true" packaged="false">
-      <directory></directory>
+    <fileSet filtered="true">
+      <directory/>
       <includes>
+        <include>macro.vm</include>
         <include>README.adoc</include>
       </includes>
     </fileSet>
-    <fileSet filtered="false" packaged="false">
+    <fileSet>
       <directory>.mvn</directory>
     </fileSet>
-    <fileSet filtered="false" packaged="false">
-      <directory></directory>
+    <fileSet>
+      <directory/>
       <includes>
         <include>.gitignore</include>
         <include>LICENSE</include>
@@ -81,4 +57,31 @@ under the License.
       </includes>
     </fileSet>
   </fileSets>
+  <modules>
+    <module id="spring-cloud-starter-stream-${appType}-${rootArtifactId}"
+      dir="spring-cloud-starter-stream-__appType__-__rootArtifactId__"
+      name="spring-cloud-starter-stream-${appType}-${rootArtifactId}">
+      <fileSets>
+        <fileSet filtered="true">
+          <directory>src/main/java</directory>
+        </fileSet>
+        <fileSet filtered="true">
+          <directory>src/main/resources/META-INF</directory>
+        </fileSet>
+        <fileSet filtered="true">
+          <directory>src/test/java</directory>
+        </fileSet>
+        <fileSet filtered="true">
+          <directory/>
+          <includes>
+            <include>README.adoc</include>
+          </includes>
+        </fileSet>
+      </fileSets>
+    </module>
+    <module id="${rootArtifactId}-app-dependencies"
+      dir="__rootArtifactId__-app-dependencies"
+      name="${rootArtifactId}-app-dependencies">
+    </module>
+  </modules>
 </archetype-descriptor>

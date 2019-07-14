@@ -1,0 +1,16 @@
+#macro( ccase $str )
+#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase()#end
+#end
+
+#macro( sccase $str )
+#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase() #end
+#end
+
+#macro( package_path $str )
+#foreach( $word in $str.split('-') )$word.#end
+#end
+
+#set( $sccAppName = "#sccase( $rootArtifactId )")
+#set( $ccAppName = "#ccase( $rootArtifactId )" )
+#set( $ccAppType = "#ccase( $appType )" )
+#set( $packagePath = "#package_path( $rootArtifactId )$appType")

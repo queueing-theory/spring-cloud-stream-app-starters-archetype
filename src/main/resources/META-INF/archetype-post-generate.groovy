@@ -67,3 +67,9 @@ if (!deleteTargets.isEmpty()) {
         it.deleteDir()
     }
 }
+
+macro = new File(projectPath.toFile(), 'macro.vm')
+if (macro.exists()) {
+    macro.delete()
+}
+
