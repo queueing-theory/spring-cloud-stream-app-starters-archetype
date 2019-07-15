@@ -17,6 +17,7 @@ def dir = configuration.toFile()
 def deleteTargets = []
 def deleteTarget = null
 def propertiesFiles = []
+def propertiesType = null
 dir.eachFileRecurse(FileType.ANY) { file ->
     if (file.isDirectory() && !file.name.endsWith('META-INF')) {
         if (file.name.contains('-')) {
@@ -48,7 +49,7 @@ dir.eachFileRecurse(FileType.ANY) { file ->
         def renameTo = file.name.replace(request.artifactId, artifactId).replace(request.properties.appType, appType)
         File newFile = new File(dir, renameTo)
         if (newFile.name.endsWith('Properties.java')) {
-            properties = newFile.name
+            propertiesType = newFile.name
         }
         file.renameTo(newFile)
     } else if (file.name.endsWith('.properties')) {
@@ -58,7 +59,7 @@ dir.eachFileRecurse(FileType.ANY) { file ->
 
 if (!propertiesFiles.isEmpty()) {
     (propertiesFiles as File[]).each {
-        it << '.' + properties.take(properties.lastIndexOf('.'))
+        it << '.' + propertiesType.take(propertiesType.lastIndexOf('.'))
     }
 }
 
@@ -68,8 +69,5 @@ if (!deleteTargets.isEmpty()) {
     }
 }
 
-macro = new File(projectPath.toFile(), 'macro.vm')
-if (macro.exists()) {
-    macro.delete()
-}
+new File(projectPath.toFile(), 'macro.vm').delete()
 

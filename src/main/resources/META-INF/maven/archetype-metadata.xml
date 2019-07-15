@@ -31,6 +31,9 @@ under the License.
     <requiredProperty key="groupId">
       <defaultValue>org.springframework.cloud.stream.app</defaultValue>
     </requiredProperty>
+    <requiredProperty key="package">
+      <defaultValue>org.springframework.cloud.stream.app</defaultValue>
+    </requiredProperty>
     <requiredProperty key="appType">
       <validationRegex>source|processor|sink</validationRegex>
     </requiredProperty>
@@ -62,13 +65,13 @@ under the License.
       dir="spring-cloud-starter-stream-__appType__-__rootArtifactId__"
       name="spring-cloud-starter-stream-${appType}-${rootArtifactId}">
       <fileSets>
-        <fileSet filtered="true">
+        <fileSet filtered="true" packaged="true">
           <directory>src/main/java</directory>
         </fileSet>
         <fileSet filtered="true">
           <directory>src/main/resources/META-INF</directory>
         </fileSet>
-        <fileSet filtered="true">
+        <fileSet filtered="true" packaged="true">
           <directory>src/test/java</directory>
         </fileSet>
         <fileSet filtered="true">

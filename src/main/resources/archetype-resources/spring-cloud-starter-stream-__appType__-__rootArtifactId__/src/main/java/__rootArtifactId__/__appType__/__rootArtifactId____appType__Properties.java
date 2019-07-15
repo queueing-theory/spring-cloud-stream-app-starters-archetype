@@ -1,4 +1,4 @@
-package ${groupId}.${packagePath};
+package ${package}.${packagePath};
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

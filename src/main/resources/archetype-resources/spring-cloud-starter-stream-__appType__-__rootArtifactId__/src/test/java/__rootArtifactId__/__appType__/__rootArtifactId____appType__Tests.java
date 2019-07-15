@@ -1,4 +1,4 @@
-package ${groupId}.${packagePath};
+package ${package}.${packagePath};
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
