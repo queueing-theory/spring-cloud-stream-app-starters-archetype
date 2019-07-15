@@ -22,11 +22,7 @@ dir.eachFileRecurse(FileType.ANY) { file ->
     if (file.isDirectory() && !file.name.endsWith('META-INF')) {
         if (file.name.contains('-')) {
             deleteTarget = file
-            def dirs = []
-            file.name.split('-').each {
-                dirs << it
-            }
-            file = create(file.parentFile, dirs as String[])
+            file = create(file.parentFile, file.name.split('-'))
             if (file.mkdirs()) {
                 dir = file
             }
@@ -69,5 +65,5 @@ if (!deleteTargets.isEmpty()) {
     }
 }
 
-new File(projectPath.toFile(), 'macro.vm').delete()
+new File(projectPath.toFile(), 'velocity.vm').delete()
 
