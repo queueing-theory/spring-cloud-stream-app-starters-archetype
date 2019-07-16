@@ -53,7 +53,7 @@ under the License.
     <fileSet>
       <directory/>
       <includes>
-        <include>.gitignore</include>
+        <include>gitignore</include>
         <include>LICENSE</include>
         <include>mvnw</include>
         <include>mvnw.cmd</include>

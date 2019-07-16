@@ -3,8 +3,7 @@ import groovy.io.FileType
 import java.nio.file.Paths
 
 def projectPath = Paths.get(request.outputDirectory, request.artifactId)
-def configurationModule = "spring-cloud-starter-stream-${request.properties.appType}-${request.artifactId}"
-def configuration = projectPath.resolve(configurationModule)
+def appStartersBuild = projectPath.resolve("spring-cloud-starter-stream-${request.properties.appType}-${request.artifactId}")
 
 def create(File parent, String[] files) {
     if (files.length == 0) return parent
@@ -13,7 +12,7 @@ def create(File parent, String[] files) {
     return create(head, tail)
 }
 
-def dir = configuration.toFile()
+def dir = appStartersBuild.toFile()
 def deleteTargets = []
 def deleteTarget = null
 def propertiesFiles = []
@@ -66,6 +65,7 @@ if (!deleteTargets.isEmpty()) {
 }
 
 new File(projectPath.toFile(), 'velocity.vm').delete()
+new File(projectPath.toFile(), 'gitignore').renameTo(new File(projectPath.toFile(), ".gitignore"))
 new File(projectPath.toFile(), 'mvnw').setExecutable(true)
 new File(projectPath.toFile(), 'mvnw.cmd').setExecutable(true)
 
