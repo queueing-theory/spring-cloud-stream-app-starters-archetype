@@ -1,9 +1,5 @@
-#macro( ccase $str )
-#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase()#end
-#end
-
-#macro( sccase $str )
-#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase() #end
+#macro( ccase $str $delimiter )
+#foreach( $word in $str.split('-') )$word.substring(0, 1).toUpperCase()$word.substring(1).toLowerCase()$delimiter#end
 #end
 
 #macro( package_path $str )
@@ -14,8 +10,8 @@
 #if( $str == 'source')Source#elseif($str == 'processor')Processor#elseif($str == 'sink')Sink#end
 #end
 
-#set( $sccAppName = "#sccase( $rootArtifactId )")
-#set( $ccAppName = "#ccase( $rootArtifactId )" )
-#set( $ccAppType = "#ccase( $appType )" )
+#set( $sccAppName = "#ccase( $rootArtifactId, ' ' )")
+#set( $ccAppName = "#ccase( $rootArtifactId, '' )")
+#set( $ccAppType = "#ccase( $appType, '' )" )
 #set( $packagePath = "#package_path( $rootArtifactId )$appType")
 #set( $appInterface = "#interface( $appType )")

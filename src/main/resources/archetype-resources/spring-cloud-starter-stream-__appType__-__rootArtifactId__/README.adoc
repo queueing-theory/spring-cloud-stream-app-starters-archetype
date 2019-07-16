@@ -1,3 +1,49 @@
 #[[//tag::ref-doc[]]]#
 #[[=]]# $ccAppName $ccAppType
+
+#if($ccAppType=='Source' || $ccAppType=='Processor')
+== Input
+
+=== Headers
+
+=== Payload
+#end
+#if($ccAppType=='Sink' || $ccAppType=='Processor')
+== Output
+
+=== Headers
+
+=== Payload
+#end
 #[[//end::ref-doc[]]]#
+
+== Options
+
+The **#[[$$]]#${rootArtifactId}#[[$$]]#** #[[$$]]#${appType}#[[$$]]# has the following options:
+
+== Build
+
+```
+$ ./mvnw clean install -PgenerateApps
+$ cd apps
+```
+You can find the corresponding binder based projects here.
+You can then cd into one of the folders and build it:
+```
+$ ./mvnw clean package
+```
+
+== Examples
+
+```
+
+java -jar ${rootArtifactId}-${appType}-kafka.jar
+
+or
+
+java -jar ${rootArtifactId}-${appType}-rabbit.jar
+
+```
+
+
+

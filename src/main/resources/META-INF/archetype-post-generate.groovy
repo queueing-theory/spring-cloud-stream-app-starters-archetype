@@ -66,4 +66,7 @@ if (!deleteTargets.isEmpty()) {
 }
 
 new File(projectPath.toFile(), 'velocity.vm').delete()
+new File(projectPath.toFile(), 'mvnw').setExecutable(true)
+new File(projectPath.toFile(), 'mvnw.cmd').setExecutable(true)
+
 
