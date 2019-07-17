@@ -37,11 +37,11 @@ $ ./mvnw clean package
 
 ```
 
-java -jar ${rootArtifactId}-${appType}-kafka.jar
+java -jar ${rootArtifactId}-${appType}-kafka-${version}.jar
 
 or
 
-java -jar ${rootArtifactId}-${appType}-rabbit.jar
+java -jar ${rootArtifactId}-${appType}-rabbit-${version}.jar
 
 ```
 
