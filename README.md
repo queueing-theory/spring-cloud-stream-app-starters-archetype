@@ -26,10 +26,13 @@ mvn archetype:generate                                  \
 
 2. provide property values to generate a scaffolding for your new artifact.
 ```
-artifactId -> foo-bar
-version -> 2.1.0.RELEASE
-appType -> source
-springCloudVersion -> 2.1.3.RELEASE
+groupId->org.springframework.cloud.stream.app(default)
+artifactId->foo-bar
+package->org.springframework.cloud.stream.app(default)
+version->2.1.0.BUILD-SNAPSHOT
+appType->source
+app-starters-build-version->2.1.0.RELEASE
+spring-cloud-dependencies-parent-version->2.1.3.RELEASE
 ```
 
 3. To remove, once your are done with exploring, use the following command.
