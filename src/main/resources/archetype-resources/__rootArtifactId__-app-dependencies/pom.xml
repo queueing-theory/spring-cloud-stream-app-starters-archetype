@@ -13,7 +13,7 @@
     <parent>
         <artifactId>spring-cloud-dependencies-parent</artifactId>
         <groupId>org.springframework.cloud</groupId>
-        <version>${springCloudVersion}</version>
+        <version>${spring-cloud-dependencies-parent-version}</version>
         <relativePath/>
     </parent>
 

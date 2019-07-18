@@ -37,7 +37,8 @@ under the License.
     <requiredProperty key="appType">
       <validationRegex>source|processor|sink</validationRegex>
     </requiredProperty>
-    <requiredProperty key="springCloudVersion"/>
+    <requiredProperty key="app-starters-build-version"></requiredProperty>
+    <requiredProperty key="spring-cloud-dependencies-parent-version"/>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true">
