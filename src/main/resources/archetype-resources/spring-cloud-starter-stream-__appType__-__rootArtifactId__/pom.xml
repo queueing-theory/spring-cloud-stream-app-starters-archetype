@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.cloud.stream.app</groupId>
         <artifactId>${rootArtifactId}-app-starters-build</artifactId>
-        <version>${app-starters-build-version}</version>
+        <version>${version}</version>
     </parent>
 
     <build>
